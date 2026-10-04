@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://cdn.proxyium.com/proxyrequest.php" method="post">
+        <input type="hidden" name="type" value="">
+        <input type="hidden" name="proxy_country" value="pl">
+        <input type="hidden" name="url" value="" id="url">
+        <input type="submit" value="Klick hier" id="btn">
+    </form>
+    <script>
+        if(!new URLSearchParams(document.location.search).get("stop")){
+            document.getElementById("url").value = new URLSearchParams(document.location.search).get("url")
+            document.getElementById("btn").click()
+        }
+    </script>
+</body>
+</html>
