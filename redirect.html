@@ -13,8 +13,8 @@
         <input type="submit" value="Klick hier" id="btn">
     </form>
     <script>
+        document.getElementById("url").value = new URLSearchParams(document.location.search).get("url")
         if(!new URLSearchParams(document.location.search).get("stop")){
-            document.getElementById("url").value = new URLSearchParams(document.location.search).get("url")
             document.getElementById("btn").click()
         }
     </script>
