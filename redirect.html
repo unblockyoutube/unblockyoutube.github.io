@@ -6,13 +6,18 @@
     <title>Redirecting...</title>
 </head>
 <body>
-    Please reload the Page
     <script>
         let url = new URLSearchParams(document.location.search).get("url")
-        var win = window.open('about:blank',target="_top")// <-- include the URL 
-        var doc = '<form action="https://cdn.proxyium.com/proxyrequest.php" method="post" target="_top"><input type="hidden" name="type" value=""><input type="hidden" name="proxy_country" value="pl"><input type="hidden" name="url" value="'+url+'" id="url"><input type="submit" value="Klick hier" id="btn"></form>'
-        win.document.body.innerHTML=doc
-        win.document.getElementById("btn").click()
+        if(!URL.canParse(url)){
+            if(URL.canParse("https://"+url)){
+               url = "https://" + url 
+            } else {
+                location = "https://azureserv.com/?__cpo="+btoa(url)
+            }
+        }
+        params = new URL(url).searchParams
+        params.append("__cpo",btoa(new URL(url).origin).replace(/[=]/g, ''))
+        location = "https://azureserv.com"+new URL(url).pathname+"?"+params.toString()
     </script>
 </body>
 </html>
