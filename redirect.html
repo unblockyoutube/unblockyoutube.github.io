@@ -6,18 +6,15 @@
     <title>Redirecting...</title>
 </head>
 <body>
+    <form method="post" action="https://cdn.proxyium.com/proxyrequest.php">
+        <input type="hidden" name="type" value>
+        <input type="hidden" name="proxy_country" value="pl">
+        <input type="hidden" name="url" id="url" value="">
+        <button type="submit" id="btn">Klicke Hier</button>
+    </form>
     <script>
-        let url = new URLSearchParams(document.location.search).get("url")
-        if(!URL.canParse(url)){
-            if(URL.canParse("https://"+url)){
-               url = "https://" + url 
-            } else {
-                location = "https://azureserv.com/?__cpo="+btoa(url)
-            }
-        }
-        params = new URL(url).searchParams
-        params.append("__cpo",btoa(new URL(url).origin).replace(/[=]/g, ''))
-        location = "https://azureserv.com"+new URL(url).pathname+"?"+params.toString()
+        document.getElementById("url").value = new URLSearchParams(location.search).get("url")
+        document.getElementById("btn").click()
     </script>
 </body>
 </html>
