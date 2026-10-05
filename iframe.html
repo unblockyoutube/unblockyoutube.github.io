@@ -7,9 +7,9 @@
 </head>
 <body style="margin: 0;">
     <iframe src="" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1" style="position:fixed;top:0;left:0;bottom:0;right:0;width:100%;height:100%;border:none;margin:0;padding:0;overflow:hidden;" id="frame"></iframe>
+    <div style="position:fixed;top:0;left:0;bottom:0;right:0;width:100%;height:100%;border:none;margin:0;padding:0;overflow:hidden;" onclick='document.getElementById("frame").requestFullscreen();''></div>
     <script>
         document.getElementById("frame").src = new URLSearchParams(document.location.search).get("url");
-        document.getElementById("frame").requestFullscreen();
     </script>
 </body>
 </html>
